@@ -107,7 +107,7 @@ myEditor :: String
 myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor for tree select
 
 myBorderWidth :: Dimension
-myBorderWidth = 2          -- Sets border width for windows
+myBorderWidth = 1          -- Sets border width for windows
 
 myNormColor :: String
 myNormColor   = "#282c34"  -- Border color of normal windows
@@ -663,7 +663,7 @@ tall     = renamed [Replace "tall"]
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
            $ limitWindows 12
-           $ mySpacing 8
+           $ mySpacing 4
            $ ResizableTall 1 (3/100) (1/2) []
 magnify  = renamed [Replace "magnify"]
            $ windowNavigation
@@ -671,7 +671,7 @@ magnify  = renamed [Replace "magnify"]
            $ subLayout [] (smartBorders Simplest)
            $ magnifier
            $ limitWindows 12
-           $ mySpacing 8
+           $ mySpacing 4
            $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
            $ windowNavigation
@@ -695,7 +695,7 @@ spirals  = renamed [Replace "spirals"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
-           $ mySpacing' 8
+           $ mySpacing' 4
            $ spiral (6/7)
 threeCol = renamed [Replace "threeCol"]
            $ windowNavigation

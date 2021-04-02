@@ -66,7 +66,7 @@ let g:NERDTreeWinSize = 32
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-nnoremap <silent> <C-f> :NERDTreeFind<CR>
+nnoremap <silent> <C-t> :NERDTreeFind<CR>
 
 " Tagbar -----------
 let g:tagbar_width = 32
