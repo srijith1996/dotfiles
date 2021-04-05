@@ -756,7 +756,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
 --    WORKSPACES
 ---------------------------------------------------------------------------------------------------
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
-myWorkspaces = [" dev ", " web ", " sys ", " doc ", " vbox ", " meet ", " mus ", " vid ", " gfx "]
+myWorkspaces = [" dev ", " web ", " sys ", " doc ", " doc2 ", " vbox ", " meet ", " mus ", " vid ", " gfx "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -772,16 +772,16 @@ myManageHook = composeAll
      , title =? "MATLAB R2020a - academic use"  --> doShift ( myWorkspaces !! 0 )
      , title =? "MATLAB R2020a - academic use"  --> doShift ( myWorkspaces !! 0 )
      , className =? "zoom"                      --> doFloat
-     , title =? "Zoom"                          --> doShift ( myWorkspaces !! 5 )
-     , title =? "Zoom - Licensed Account"       --> doShift ( myWorkspaces !! 1 )
-     , title =? "Zoom Meeting"                  --> doShift ( myWorkspaces !! 1 )  
-     , title =? "Rhythmbox"                     --> doShift ( myWorkspaces !! 6 )
-     , className =? "mpv"                       --> doShift ( myWorkspaces !! 7 )
-     , className =? "Gimp"                      --> doShift ( myWorkspaces !! 8 )
+     , title =? "Zoom"                          --> doShift ( myWorkspaces !! 6 )
+     , title =? "Zoom - Licensed Account"       --> doShift ( myWorkspaces !! 6 )
+     , title =? "Zoom Meeting"                  --> doShift ( myWorkspaces !! 6 )  
+     , title =? "Rhythmbox"                     --> doShift ( myWorkspaces !! 7 )
+     , className =? "mpv"                       --> doShift ( myWorkspaces !! 8 )
+     , className =? "Gimp"                      --> doShift ( myWorkspaces !! 9 )
      , className =? "Gimp"                      --> doFloat
      , className =? "obs"                       --> doShift ( myWorkspaces !! 9 )
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-     , className =? "VirtualBox Manager"        --> doShift  ( myWorkspaces !! 4 )
+     , className =? "VirtualBox Manager"        --> doShift  ( myWorkspaces !! 5 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      , className =? "matplotlib"                --> doFloat  -- Float Python plots
      , className =? "Org.gnome.Nautilus"        --> doFloat  -- File manager
