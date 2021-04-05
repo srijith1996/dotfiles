@@ -48,15 +48,30 @@ filetype plugin indent on    " required
 set number
 set relativenumber
 syntax on
+
+set t_Co=256
 colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
 
 " Indentation spaces
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" Custom keybindings
+" filetype plugin
+filetype plugin on
+let g:tex_flavor = "plain"
+
+" ---- Custom keybindings ------
 inoremap <C-s> <ESC>:w<CR>i|		"Save file from insert mode Ctrl-s
+
+" Visual mode keybindings
+vnoremap <C-s> c[<C-r>"]<ESC>
+vnoremap <C-c> c{<C-r>"}<ESC>
+vnoremap <C-r> c(<C-r>")<ESC>
+vnoremap <C-e> c'<C-r>"'<ESC>
+vnoremap <C-i> c"<C-r>""<ESC>
+vnoremap <C-d> c$<C-r>"$<ESC>
 
 " Nerdtree ----------
 let NERDTreeMinimalUI = 1
