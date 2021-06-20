@@ -63,6 +63,7 @@ filetype plugin on
 let g:tex_flavor = "plain"
 
 " ---- Custom keybindings ------
+nnoremap <leader>d :!rm -f .%:t.swp<CR><CR>|  "Delete swap file
 inoremap <C-s> <ESC>:w<CR>i|		"Save file from insert mode Ctrl-s
 
 " Visual mode keybindings
