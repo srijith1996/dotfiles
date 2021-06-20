@@ -1,0 +1,14 @@
+#!/bin/bash
+
+fname=${1:0:-4}
+refsexist=$(grep '^\\bibliography{' $1)
+echo $refsexist
+
+pdflatex $1
+
+if ! [ -z "$refsexist" ] ; then
+   echo "Found reference to bib file ................"
+   bibtex $fname
+   pdflatex $1
+fi
+pdflatex $1
