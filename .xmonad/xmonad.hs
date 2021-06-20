@@ -756,7 +756,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
 --    WORKSPACES
 ---------------------------------------------------------------------------------------------------
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
-myWorkspaces = [" dev ", " web ", " sys ", " doc ", " doc2 ", " vbox ", " meet ", " mus ", " vid ", " gfx "]
+myWorkspaces = [" 1.dev ", " 2.web ", " 3.mail ", " 4.sys ", " 5.doc ", " 6.doc ", " 7.vid ", " 8.mus ", " 9.proc "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -768,21 +768,25 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces, and the names would very long if using clickable workspaces.
      [ title =? "Mozilla Firefox"               --> doShift ( myWorkspaces !! 1 )
-     , title =? "Evolution"                     --> doShift ( myWorkspaces !! 1 )
+     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+     , className =? "Evolution"                     --> doShift ( myWorkspaces !! 2 )
      , title =? "MATLAB R2020a - academic use"  --> doShift ( myWorkspaces !! 0 )
-     , title =? "MATLAB R2020a - academic use"  --> doShift ( myWorkspaces !! 0 )
-     , className =? "zoom"                      --> doFloat
+     -- , titlefw =? "Figure" --> doFloat        -- for floating windows
+
+     -- Zoom windows
      , title =? "Zoom"                          --> doShift ( myWorkspaces !! 6 )
      , title =? "Zoom - Licensed Account"       --> doShift ( myWorkspaces !! 6 )
      , title =? "Zoom Meeting"                  --> doShift ( myWorkspaces !! 6 )  
+
+     -- music
      , title =? "Rhythmbox"                     --> doShift ( myWorkspaces !! 7 )
-     , className =? "mpv"                       --> doShift ( myWorkspaces !! 8 )
-     , className =? "Gimp"                      --> doShift ( myWorkspaces !! 9 )
+     , className =? "mpv"                       --> doShift ( myWorkspaces !! 6 )
+     , className =? "Gimp"                      --> doShift ( myWorkspaces !! 8 )
      , className =? "Gimp"                      --> doFloat
-     , className =? "obs"                       --> doShift ( myWorkspaces !! 9 )
-     , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-     , className =? "VirtualBox Manager"        --> doShift  ( myWorkspaces !! 5 )
-     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+     , className =? "obs"                       --> doShift ( myWorkspaces !! 6 )
+     --, title =? "Oracle VM VirtualBox Manager"  --> doFloat
+     --, className =? "VirtualBox Manager"        --> doShift  ( myWorkspaces !! 5 )
+
      , className =? "matplotlib"                --> doFloat  -- Float Python plots
      , className =? "Org.gnome.Nautilus"        --> doFloat  -- File manager
      ] <+> namedScratchpadManageHook myScratchPads
@@ -1000,7 +1004,7 @@ main = do
              , ppVisible = xmobarColor "#c79212" "" . clickable              -- Visible but not current workspace
              , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" "" . clickable -- Hidden workspaces in xmobar
              , ppHiddenNoWindows = xmobarColor "#98be65" ""  . clickable     -- Hidden workspaces (no windows)
-             , ppTitle = xmobarColor "#b3afc2" "" . shorten 40               -- Title of active window in xmobar
+             , ppTitle = xmobarColor "#b3afc2" "" . shorten 30               -- Title of active window in xmobar
              , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separators in xmobar
              , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
              , ppExtras  = [windowCount]                                     -- # of windows current workspace
