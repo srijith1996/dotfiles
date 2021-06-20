@@ -6,9 +6,10 @@ Config { font    = "xft:DejaVu:weight=bold:pixelsize=12:antialias=true:hinting=t
        , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=12:antialias=true:hinting=true"
                            , "xft:FontAwesome:pixelsize=13"
                            ]
-       , bgColor = "#282c34"
+       --, bgColor = "#282c34"
+       , bgColor = "#282828"
        , fgColor = "#ff6c6b"
-       , alpha = 255
+       , alpha = 200
        , position = Static { xpos = 2560, ypos = 0, width = 1366, height = 24 }
        , lowerOnStart = True
        , hideOnStart = False
@@ -17,7 +18,7 @@ Config { font    = "xft:DejaVu:weight=bold:pixelsize=12:antialias=true:hinting=t
        , iconRoot = "/home/srijith/.xmonad/xpm/"  -- default: "."
        , commands = [ 
                       -- Time and date
-                      Run Date "<fn=2></fn>  %b %d %Y - (%H:%M) " "date" 50
+                      Run Date "<fn=2></fn> %a, %m/%d/%Y (%H:%M) " "date" 50
                       -- Network name
                     , Run Com "/bin/bash" ["-c", "~/bin/get-wifissid.sh"] "wifi" 20
                       -- Display volume status
@@ -39,12 +40,12 @@ Config { font    = "xft:DejaVu:weight=bold:pixelsize=12:antialias=true:hinting=t
        , sepChar = "%"
        , alignSep = "}{"
        , template = "<action=`xdotool key control+alt+g`>\
-                      \ <icon=haskell_20.xpm/>\
+                      \ <icon=fedora_ds.xpm/>\
                       \ </action><fc=#666666> |</fc>\
                       \ %UnsafeStdinReader% }{ <fc=#666666> |</fc>\
-                      \ <fc=#98be65> <fn=2></fn> %wifi% </fc> <fc=#666666> |</fc>\
-                      \ <fc=#e3fc03><fn=2></fn> %myvolume% </fc> <fc=#666666> |</fc>\
-                      \ <fc=#fcbe03><fn=2></fn> %mybt% </fc> <fc=#666666> |</fc>\
-                      \ <fc=#b3afc2><fn=2></fn> %battery% </fc> <fc=#666666> |</fc>\
-                      \ <fc=#46d9ff> %date%  </fc>"
+                      \ <fc=#98be65> <fn=2></fn> %wifi% </fc><fc=#666666> |</fc>\
+                      \ <fc=#e3fc03><fn=2></fn> %myvolume% </fc><fc=#666666> |</fc>\
+                      \ <fc=#fcbe03><fn=2></fn> %mybt% </fc><fc=#666666> |</fc>\
+                      \ <fc=#b3afc2><fn=2></fn> %battery% </fc><fc=#666666> |</fc>\
+                      \ <fc=#46d9ff> %date% </fc>"
        }
